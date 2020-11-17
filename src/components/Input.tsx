@@ -3,22 +3,17 @@ import React from 'react';
 type Props = {
   placeholder?: string;
   prefix?: string;
-  onClick?: () => void;
+  onChange?: (arg0: string) => void;
   type: string;
   value?: string;
 }
 
-const Input: React.FC<Props> = ({ placeholder, prefix, onClick, type, value }: Props) => {
-  const onSubmit = (evt: React.SyntheticEvent) => {
-    evt.preventDefault();
-    onClick?.();
-  };
-
+const Input: React.FC<Props> = ({ placeholder, prefix, onChange, type, value }: Props) => {
   return (
     <input
       placeholder={placeholder}
       className={`input ${prefix ? prefix : ``}`}
-      onClick={onSubmit}
+      onChange={(evt) => onChange?.(evt.target.value)}
       type={type}
       value={value}
     />
