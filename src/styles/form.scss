@@ -16,5 +16,10 @@
 }
 
 .form__button {
+  width: 100%;
   cursor: pointer;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
